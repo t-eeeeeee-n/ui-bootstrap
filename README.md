@@ -3,6 +3,9 @@
 ブランド系 DESIGN.md をベースに、自分のプロダクト用 UI モックを
 Claude Code で高速に立ち上げるための再利用ワークフローキット。
 
+> 💡 生成したモックのレビューには [`claude-code-agents`](https://github.com/t-eeeeeee-n/claude-code-agents)
+> を併用すると、意味的なデザインチェックまで自動化できます。
+
 ## このキットに含まれるもの
 
 ```
