@@ -97,6 +97,24 @@ B と C は両立可能。A の WORKFLOW.md を手元の参照として置きつ
 4. **機械的チェック**: grep で残留とハードコードを検出。レビューを属人化させない
 5. **ステップ間に人間レビュー**: 完全自動化しない。特にパイロット画面は目視確認を必須に
 
+## Companion: claude-code-agents
+
+このキットで生成したモックのレビューは、
+[`claude-code-agents`](https://github.com/t-eeeeeee-n/claude-code-agents) に含まれる
+`ui-design-reviewer` subagent と組み合わせると威力を発揮します。
+
+`/ui-mock-check` が担う機械的チェック（残留ブランド語彙、Tailwind直指定の混入、
+CSS変数利用量）に対して、`ui-design-reviewer` は以下のような **意味的レビュー** を担当します：
+
+- 画面間の一貫性（サイドバー、タブバー、ボタン使い分け等の統一感）
+- DESIGN.md 準拠の視覚的判断（アクセントカラーの発散、surface階層の成立）
+- PRODUCT.md のダミーデータ正典との整合性
+- "らしさ" の観点（grep では検出できないブランドトーンの乖離）
+
+`claude-code-agents` をグローバルに配置しておけば、UI Bootstrap Kit の
+`/ui-mock-rest` で画面を量産した後、自動で `ui-design-reviewer` が発火して
+レビュー結果を返してくれるフローになります。
+
 ## 参照リンク
 
 - **getdesign.md カタログ**: https://getdesign.md/
